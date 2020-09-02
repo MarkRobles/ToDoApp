@@ -1,0 +1,55 @@
+﻿@page
+@model ToDo.Web.Pages.Notes.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Note</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Note.id" />
+            <div class="form-group">
+                <label asp-for="Note.description" class="control-label"></label>
+                <input asp-for="Note.description" class="form-control" />
+                <span asp-validation-for="Note.description" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Note.startDate" class="control-label"></label>
+                <input asp-for="Note.startDate" class="form-control" />
+                <span asp-validation-for="Note.startDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Note.endDate" class="control-label"></label>
+                <input asp-for="Note.endDate" class="form-control" />
+                <span asp-validation-for="Note.endDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Note.Details" class="control-label"></label>
+                <input asp-for="Note.Details" class="form-control" />
+                <span asp-validation-for="Note.Details" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="Note.done" /> @Html.DisplayNameFor(model => model.Note.done)
+                </label>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
